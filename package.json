@@ -1,0 +1,29 @@
+{
+  "name": "sails-mysql-live-select",
+  "version": "0.1.0",
+  "description": "MySQL Live Select for Sails.js",
+  "main": "lib/adapter.js",
+  "scripts": {
+    "test": "echo \"Not yet implemented\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/numtel/sails-mysql-live-select.git"
+  },
+  "keywords": [
+    "mysql",
+    "live",
+    "select",
+    "sails"
+  ],
+  "author": "Ben Green <ben@latenightsketches.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "mysql-live-select": "^1.0.3",
+    "sails-mysql": "^0.11.0",
+    "waterline-errors": "~0.10.0",
+    "waterline-sequel": "~0.5.0"
+  },
+  "devDependencies": {}
+}
