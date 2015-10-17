@@ -1,4 +1,4 @@
-# sails-mysql-live-select
+# sails-mysql-live-select [![Build Status](https://travis-ci.org/numtel/sails-mysql-live-select.svg?branch=master)](https://travis-ci.org/numtel/sails-mysql-live-select)
 
 A [Sails](http://sailsjs.org) connection adapter to use [the `mysql-live-select` NPM Package](https://github.com/numtel/mysql-live-select) in order to provide live (real time) result sets for models.
 
@@ -94,6 +94,17 @@ var myLiveSelect = MyModel.liveFind({},
 ```
 
 When done listening for updates to a query, be sure to call the `stop()` method on the returned `LiveMysqlSelect` object to prevent memory leaks.
+
+## Running Tests
+
+```bash
+# Configure MySQL server settings
+vim test/config/connections.js
+# Run suite
+npm test
+```
+
+Test execution code is in [`test/config/bootstrap.js`](test/config/bootstrap.js).
 
 ## License
 

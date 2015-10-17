@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "4.1"
+before_script:
+  - sudo apt-get install libaio1 libaio-dev
+  - ./test/travis/install.sh
+  - mysql -h127.0.0.1 -P3355 -uroot -e "create database sails_test;"
+script:
+  - npm test
+after_script:
+  - kill $(cat mysql-5.5.41-linux2.6-x86_64/mysql.pid)
