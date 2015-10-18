@@ -1,49 +1,30 @@
 if(process.env.CI) {
   // Travis CI test settings
   module.exports.connections = {
-    mysql: {
-      adapter: 'sails-mysql',
-      host: '127.0.0.1',
-      port: '3355',
-      user: 'root',
-      password: '',
-      database: 'sails_test'
+    pg: {
+      adapter: 'sails-postgresql',
+      url: 'postgres://postgres@127.0.0.1/travis_ci_test'
     },
-    liveMysql: {
-      adapter: 'sails-mysql-live-select',
-      host: '127.0.0.1',
-      port: '3355',
-      user: 'root',
-      password: '',
-      database: 'sails_test',
-      serverId: 1337,
-      minInterval: 200
+    livePg: {
+      adapter: 'sails-postgresql-live-select',
+      url: 'postgres://postgres@127.0.0.1/travis_ci_test',
+      channel: 'travis_test'
     }
   };
 
 } else {
   // Tests running locally, configure these values
   module.exports.connections = {
-
-    mysql: {
-      adapter: 'sails-mysql',
-      host: '127.0.0.1',
-      user: 'todouser',
-      password: 'todopass',
-      database: 'sails_todo'
+    pg: {
+      adapter: 'sails-postgresql',
+      url: 'postgres://sails:sails@localhost:5432/sails_test'
     },
-
-    liveMysql: {
-      adapter: 'sails-mysql-live-select',
-      host: '127.0.0.1',
-      // This user must have REPLICATION SLAVE, REPLICATION CLIENT and SELECT
-      // privileges.
-      user: 'todouser',
-      password: 'todopass',
-      database: 'sails_todo',
-      // Other settings used by mysql-live-select
-      serverId: 1337,
-      minInterval: 200
+    livePg: {
+      adapter: 'sails-postgresql-live-select',
+      // Connection details must be passed as url, not individually
+      url: 'postgres://sails:sails@localhost:5432/sails_test',
+      // Unique channel required for asynchronous notifications
+      channel: 'sails_test'
     }
   };
 }

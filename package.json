@@ -1,17 +1,17 @@
 {
-  "name": "sails-mysql-live-select",
-  "version": "0.1.0",
-  "description": "MySQL Live Select for Sails.js",
+  "name": "sails-postgresql-live-select",
+  "version": "0.1.1",
+  "description": "PostgreSQL Live Select for Sails.js",
   "main": "lib/adapter.js",
   "scripts": {
-    "test": "cd test && rm -f node_modules && ln -s ../node_modules node_modules && cd .. && node test/app.js"
+    "test": "test/runner.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/numtel/sails-mysql-live-select.git"
+    "url": "git://github.com/numtel/sails-postgresql-live-select.git"
   },
   "keywords": [
-    "mysql",
+    "postgresql",
     "live",
     "select",
     "sails"
@@ -20,8 +20,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "mysql-live-select": "^1.0.3",
-    "sails-mysql": "^0.11.0",
+    "lodash": "^3.10.1",
+    "pg-live-select": "^1.0.3",
+    "sails-postgresql": "^0.10.16",
     "waterline-errors": "~0.10.0",
     "waterline-sequel": "~0.5.0"
   },
@@ -44,7 +45,6 @@
     "rc": "~0.5.0",
     "sails": "~0.11.2",
     "sails-disk": "~0.10.0",
-    "sails-mysql": "^0.11.0",
-    "sails-mysql-live-select": "^0.1.0"
+    "sails-postgresql": "^0.10.16"
   }
 }

@@ -1,4 +1,4 @@
 module.exports.models = {
-  connection: [ 'mysql', 'liveMysql' ],
+  connection: [ 'pg', 'livePg' ],
   migrate: 'drop'
 };
