@@ -13,18 +13,24 @@ module.exports.bootstrap = function(cb) {
 
   var installed = [];
   var opCount = 0;
+  var conditionCount = 0;
 
-  var liveAll = Foo.liveFind({});
+  var liveAll = Foo.liveFind({}, function(row) {
+    // Test with condition function
+    conditionCount++;
+    return true;
+  });
+
   liveAll.on('update', function(diff, data) {
     // Conditional to match valid diff/data states
-    if(
+    if(opCount === conditionCount && (
       // Initial state: empty diff with empty added array
       (data.length === 0 && diff.added.length === 0)
       // First stage: adding sample items
       || (diff.added && diff.added[0].message * 1 === diff.added[0].id)
       // Second stage: One item removed
       || (opCount === 7 && data.length === 5)
-    ) {
+    )) {
       process.stdout.write('.');
     } else {
       console.log('failed!'.red, diff);
